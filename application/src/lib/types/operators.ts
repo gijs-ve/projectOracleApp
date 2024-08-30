@@ -1,5 +1,5 @@
 import { Letter } from "./letters";
-import { Resource } from "./resources";
+import { Machine, Resource } from "./resources";
 import { Word } from "./words";
 
 export type Operator<T extends "public" | "private" = "public"> =
@@ -7,6 +7,8 @@ export type Operator<T extends "public" | "private" = "public"> =
 
 type PublicOperator = {
   id: string;
+  userId: string;
+  worldId: string;
   name: string;
   stars: number;
 };
@@ -15,4 +17,5 @@ type PrivateOperator = PublicOperator & {
   words: Word[];
   letters: Letter[];
   resources: Resource[];
+  machines: Machine[];
 };
