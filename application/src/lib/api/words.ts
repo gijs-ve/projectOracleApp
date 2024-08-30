@@ -6,8 +6,8 @@ const getWords = async () => {
   }
 };
 
-const getWord = async (id: string) => {
-  const word = await fetch(`${route}/${id}`);
+const getWord = async (wordId: string) => {
+  const word = await fetch(`${route}/${wordId}`);
   if (!word.ok) {
     throw new Error(word.statusText);
   }

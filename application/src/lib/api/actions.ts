@@ -12,8 +12,8 @@ const getActions = async () => {
   return actions.json();
 };
 
-const getAction = async (id: string) => {
-  const action = await fetchApi(`${route}/${id}`);
+const getAction = async (actionId: string) => {
+  const action = await fetchApi(`${route}/${actionId}`);
   if (!action.ok) {
     throw new Error(action.statusText);
   }
@@ -85,45 +85,24 @@ const formWord = async (letters: Letter[]) => {
   }
 };
 
-const demolishLetter = async (letter: Letter) => {
-  const response = await fetchApi(`${route}/letters/demolish`, {
+const demolishLetter = async (letterId: string) => {
+  const response = await fetchApi(`${route}/letters/demolish?id=${letterId}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ letter }),
   });
   if (!response.ok) {
     throw new Error(response.statusText);
   }
 };
 
-const demolishWord = async (word: Word) => {
-  const response = await fetchApi(`${route}/words/demolish`, {
+const demolishWord = async (wordId: string) => {
+  const response = await fetchApi(`${route}/words/demolish?id=${wordId}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ word }),
-  });
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-};
-
-const submitOffer = async ({
-  auctionItemId,
-  bid,
-}: {
-  auctionItemId: string;
-  bid: number;
-}) => {
-  const response = await fetchApi(`${route}/auctions/submit`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ auctionItemId, bid }),
   });
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -149,8 +128,9 @@ export const actionsApi = {
   demolishLetter,
   demolishWord,
   formWord,
+  getActions,
+  getAction,
   sellLetter,
   sellWord,
-  submitOffer,
   submitPrompt,
 } as const;

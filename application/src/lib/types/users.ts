@@ -1,6 +1,4 @@
-import { Letter } from "./letters";
-import { Resource } from "./resources";
-import { Word } from "./words";
+import { Operator } from "./operators";
 
 type Role = "admin" | "user";
 export type User<T extends "public" | "private" = "public"> = T extends "public"
@@ -11,13 +9,12 @@ export type Self = User<"private">;
 type PublicUser = {
   id: string;
   name: string;
-  stars: number;
+  victories: number;
+  operators: Operator<"public">[];
 };
 
 type PrivateUser = PublicUser & {
-  email: string;
   role: Role;
-  words: Word[];
-  letters: Letter[];
-  resources: Resource[];
+  email: string;
+  operators: Operator<"private">[];
 };
