@@ -12,9 +12,9 @@ const getAuctions = async ({
     `${route}/auctions?take=${take}&offset=${offset}`
   );
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
-  return response.json();
+  return response;
 };
 
 const createOffer = async ({
@@ -32,8 +32,9 @@ const createOffer = async ({
     body: JSON.stringify({ bid }),
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 export const auctionsApi = {

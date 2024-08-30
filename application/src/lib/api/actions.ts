@@ -5,19 +5,19 @@ import { fetchApi } from "./fetch";
 const route = "/actions";
 
 const getActions = async () => {
-  const actions = await fetchApi(`${route}`);
-  if (!actions.ok) {
-    throw new Error(actions.statusText);
+  const response = await fetchApi(`${route}`);
+  if (!response.ok) {
+    throw new Error(response.error);
   }
-  return actions.json();
+  return response;
 };
 
 const getAction = async (actionId: string) => {
-  const action = await fetchApi(`${route}/${actionId}`);
-  if (!action.ok) {
-    throw new Error(action.statusText);
+  const response = await fetchApi(`${route}/${actionId}`);
+  if (!response.ok) {
+    throw new Error(response.error);
   }
-  return action.json();
+  return response;
 };
 
 const buyLetter = async (letter: Letter) => {
@@ -29,8 +29,9 @@ const buyLetter = async (letter: Letter) => {
     body: JSON.stringify({ letter }),
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 const buyWord = async (word: Word) => {
@@ -42,8 +43,9 @@ const buyWord = async (word: Word) => {
     body: JSON.stringify({ word }),
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 const sellLetter = async (letter: Letter) => {
@@ -55,8 +57,9 @@ const sellLetter = async (letter: Letter) => {
     body: JSON.stringify({ letter }),
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 const sellWord = async (word: Word) => {
@@ -68,8 +71,9 @@ const sellWord = async (word: Word) => {
     body: JSON.stringify({ word }),
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 const formWord = async (letters: Letter[]) => {
@@ -81,8 +85,9 @@ const formWord = async (letters: Letter[]) => {
     body: JSON.stringify({ letters }),
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 const demolishLetter = async (letterId: string) => {
@@ -93,8 +98,9 @@ const demolishLetter = async (letterId: string) => {
     },
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 const demolishWord = async (wordId: string) => {
@@ -105,8 +111,9 @@ const demolishWord = async (wordId: string) => {
     },
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 const submitPrompt = async (prompt: Word[]) => {
@@ -118,8 +125,9 @@ const submitPrompt = async (prompt: Word[]) => {
     body: JSON.stringify({ prompt }),
   });
   if (!response.ok) {
-    throw new Error(response.statusText);
+    throw new Error(response.error);
   }
+  return response;
 };
 
 export const actionsApi = {

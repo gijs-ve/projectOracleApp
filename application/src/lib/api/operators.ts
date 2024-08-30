@@ -1,3 +1,4 @@
+import { Operator } from "../types/operators";
 import { fetchApi } from "./fetch";
 
 const route = "/operators";
@@ -10,15 +11,21 @@ const getOperators = async ({
   take: number;
   offset: number;
 }) => {
-  const operators = await fetchApi(
+  const response = await fetchApi<Operator[]>(
     `${route}?worldId=${worldId}&take=${take}&offset=${offset}`
   );
-  return operators;
+  if (!response.ok) {
+    throw new Error(response.error);
+  }
+  return response.data;
 };
 
 const getOperator = async (operatorId: string) => {
-  const operator = await fetchApi(`${route}/${operatorId}`);
-  return operator;
+  const response = await fetchApi<Operator>(`${route}/${operatorId}`);
+  if (!response.ok) {
+    throw new Error(response.error);
+  }
+  return response.data;
 };
 
 export const operatorsApi = {

@@ -1,5 +1,5 @@
 import { Footer } from "@/components/footer/Footer";
-import { gameName } from "@/lib/constants/names";
+import { gameName } from "@/lib/constants";
 import "./globals.css";
 
 export const metadata = {
