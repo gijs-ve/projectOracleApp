@@ -10,13 +10,13 @@ export type Resource = {
   updatedAt: Date;
 };
 
-export const machineTypes = [
+export const machineActionTypes = [
   "makeWord",
   "makeLetter",
-  "makeResource",
   "demolishWord",
   "demolishLetter",
 ] as const;
+export const machineTypes = [...machineActionTypes, "makeResource"] as const;
 export type MachineType = (typeof machineTypes)[number];
 
 type RawMachine = {

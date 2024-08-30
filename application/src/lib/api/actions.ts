@@ -1,3 +1,4 @@
+import { Action } from "../types/actions";
 import { Letter } from "../types/letters";
 import { Word } from "../types/words";
 import { fetchApi } from "./fetch";
@@ -5,7 +6,7 @@ import { fetchApi } from "./fetch";
 const route = "/actions";
 
 const getActions = async () => {
-  const response = await fetchApi(`${route}`);
+  const response = await fetchApi<Action[]>(`${route}`);
   if (!response.ok) {
     throw new Error(response.error);
   }
@@ -13,7 +14,7 @@ const getActions = async () => {
 };
 
 const getAction = async (actionId: string) => {
-  const response = await fetchApi(`${route}/${actionId}`);
+  const response = await fetchApi<Action>(`${route}/${actionId}`);
   if (!response.ok) {
     throw new Error(response.error);
   }
