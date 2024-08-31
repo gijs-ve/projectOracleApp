@@ -1,4 +1,4 @@
-import { Machine, MachineActionType } from "../types/resources";
+import { Machine, MachineActionType } from "../types/machines";
 
 export const machines:
   | (

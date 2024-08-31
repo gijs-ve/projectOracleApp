@@ -3,7 +3,13 @@ type DataObject<T> = {
   ref: string;
 } & T;
 
-type WorldObject<T> = Omit<
-  T,
-  "id" | "worldId" | "operatorId" | "roomId" | "x" | "y"
->;
+type Ids = "id" | "worldId" | "operatorId" | "roomId";
+type DataKeys =
+  | "machines"
+  | "letters"
+  | "resources"
+  | "rooms"
+  | "words"
+  | "x"
+  | "y";
+type WorldObject<T extends DataObject<Y>, Y = {}> = Omit<T, Ids | DataKeys>;

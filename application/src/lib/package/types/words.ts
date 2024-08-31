@@ -1,6 +1,7 @@
-import { Letter } from "./letters";
+import { Tier } from "./generic";
 
 export type Word = {
   id: string;
-  letters: Letter[];
+  text: string;
+  tier: Tier;
 };

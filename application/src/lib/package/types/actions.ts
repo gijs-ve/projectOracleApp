@@ -1,6 +1,7 @@
 import { Tier } from "./generic";
 import { Letter } from "./letters";
-import { machineActionTypes, MachineType, ResourceType } from "./resources";
+import { machineActionTypes, MachineType } from "./machines";
+import { ResourceType } from "./resources";
 import { Word } from "./words";
 
 export const actionTypes = [...machineActionTypes, "makeMachine"] as const;

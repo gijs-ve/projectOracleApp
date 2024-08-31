@@ -1,6 +1,7 @@
 import { Tier } from "./generic";
 import { Letter } from "./letters";
-import { Machine, Resource } from "./resources";
+import { Resource } from "./resources";
+import { Room } from "./rooms";
 import { Word } from "./words";
 
 export type Operator<T extends "public" | "private" = "public"> =
@@ -20,5 +21,5 @@ type PrivateOperator = PublicOperator & {
     [key in Tier]: Letter[];
   };
   resources: Resource[];
-  machines: Machine[];
+  rooms: Room[];
 };
