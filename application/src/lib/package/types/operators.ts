@@ -1,3 +1,4 @@
+import { Tier } from "./generic";
 import { Letter } from "./letters";
 import { Machine, Resource } from "./resources";
 import { Word } from "./words";
@@ -15,7 +16,9 @@ type PublicOperator = {
 
 type PrivateOperator = PublicOperator & {
   words: Word[];
-  letters: Letter[];
+  letters: {
+    [key in Tier]: Letter[];
+  };
   resources: Resource[];
   machines: Machine[];
 };

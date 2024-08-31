@@ -1,4 +1,4 @@
-import { Operator } from "../types/operators";
+import { Operator } from "../package/types/operators";
 import { fetchApi } from "./fetch";
 
 const route = "/operators";

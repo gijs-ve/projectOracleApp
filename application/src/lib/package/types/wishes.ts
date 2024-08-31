@@ -1,5 +1,6 @@
 import { Operator } from "./operators";
 
+// todo: redesign Wish
 export const wishTypes = ["history", "sciene"] as const;
 export type WishType = (typeof wishTypes)[number];
 export type Wish = {

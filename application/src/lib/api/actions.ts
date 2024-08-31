@@ -1,6 +1,6 @@
-import { Action } from "../types/actions";
-import { Letter } from "../types/letters";
-import { Word } from "../types/words";
+import { Action } from "../package/types/actions";
+import { Letter } from "../package/types/letters";
+import { Word } from "../package/types/words";
 import { fetchApi } from "./fetch";
 
 const route = "/actions";
