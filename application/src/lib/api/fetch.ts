@@ -1,5 +1,5 @@
+import { Res } from "project-oracle-helpers";
 import { serverUrl } from "../constants";
-import { Res } from "../package/types/api";
 
 const apiRoute = "/api";
 export const fetchApi = async <T, R = Res<T>>(

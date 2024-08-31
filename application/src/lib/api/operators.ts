@@ -1,4 +1,4 @@
-import { Operator } from "../package/types/operators";
+import { Operator } from "project-oracle-helpers";
 import { fetchApi } from "./fetch";
 
 const route = "/operators";
