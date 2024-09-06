@@ -7,11 +7,13 @@ const config: Config = {
         './src/lib/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/game/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
         extend: {
             screens: {
                 'filler-page': '1920px',
+                'max-page': '1520px',
                 nsm: { max: '639px' },
                 nmd: { max: '767px' },
                 nlg: { max: '1023px' },
@@ -35,10 +37,18 @@ const config: Config = {
                     blackish: '#0e1111',
                     grayish: '#3b444b',
                 },
+                t: {
+                    1: '#EE0000',
+                    2: '#00EE00',
+                    3: '#0000EE',
+                    4: '#FFEE00',
+                },
             },
             fontFamily: {
                 sans: ['var(--font-geist-sans)'],
                 mono: ['var(--font-geist-mono)'],
+                faustina: ['var(--font-faustina)'],
+                exo: ['var(--font-exo)'],
             },
             spacing: {
                 'navbar-h': '93px',
