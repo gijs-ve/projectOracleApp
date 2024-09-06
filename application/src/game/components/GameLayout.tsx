@@ -1,11 +1,13 @@
 import { Exo, Faustina, Inter } from 'next/font/google';
 import { BottomHUD } from './hud/BottomHUD';
-import { Navigation } from './hud/Navigation';
+import { Navigation } from './hud/navigation/Navigation';
+
 const inter = Inter({
     subsets: ['latin'],
     display: 'swap',
     variable: '--font-inter',
 });
+
 const faustina = Faustina({
     weight: ['400', '500', '600', '700'],
     subsets: ['latin'],
