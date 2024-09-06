@@ -1,3 +1,4 @@
+import { MainLayout } from '@/components/containers/MainLayout';
 import { gameName } from '@/lib/constants';
 import './globals.css';
 
@@ -6,10 +7,10 @@ export const metadata = {
     description: ``,
 };
 
-export default function RootLayout({
+export default function InfoLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <>{children}</>;
+    return <MainLayout>{children}</MainLayout>;
 }

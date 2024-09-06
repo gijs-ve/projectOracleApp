@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { classNames } from '@/lib/util/style/classNames';
 import Link from 'next/link';
 import { PointyArrow } from '../ui/PointyArrow';
 type ArrowLinkProps = {
