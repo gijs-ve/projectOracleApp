@@ -29,7 +29,7 @@ export const GameLayout = ({ children }: GameLayoutProps) => {
             <body
                 className={`bg-g-blackish ${inter.variable} ${faustina.variable} ${exo.variable}`}
             >
-                <main className="max-w-max-page mx-auto font-exo w-svw overflow-x-hidden relative h-svh grid grid-cols-12 grid-rows-7">
+                <main className="max-w-max-page max-h-svh mx-auto font-exo w-svw overflow-hidden relative h-svh grid grid-cols-12 grid-rows-7">
                     <Navigation />
                     {children}
                     <BottomHUD />
