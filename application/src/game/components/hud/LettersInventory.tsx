@@ -100,8 +100,7 @@ export const LettersInventory = () => {
 
             // Loop through all tiers and assign the corresponding value
             for (const tier in inventory) {
-                letterObj[letter][Number(tier)] =
-                    inventory[Number(tier)][letter];
+                letterObj[letter][Number(tier)] = inventory[tier][letter];
             }
 
             result.push(letterObj);
