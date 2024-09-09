@@ -1,5 +1,6 @@
 import { classNames } from '@/lib/util/style/classNames';
 import { rightSidePadding } from '@/lib/util/style/spacing';
+import Image from 'next/image';
 import { Resource } from 'project-oracle-helpers';
 
 export const ResourceDisplay = () => {
@@ -39,13 +40,19 @@ export const ResourceDisplay = () => {
         <div
             className={classNames(
                 rightSidePadding,
-                'col-span-5 flex items-center justify-end gap-8',
+                'col-span-5 flex items-center justify-end gap-8 ',
             )}
         >
             {mockResources.map((resource) => (
-                <div key={resource.type} className="flex gap-2">
-                    <div className="text-white text-lg font-exo">
-                        {resource.type.charAt(0)}
+                <div key={resource.type} className="flex gap-2 ">
+                    <div className="text-white text-lg font-exo border ">
+                        <Image
+                            src={`/images/resources/${resource.type}.png`}
+                            alt={resource.type}
+                            width={24}
+                            height={24}
+                            layout="fixed"
+                        />
                     </div>
                     <div className="text-white text-lg font-exo">
                         {resource.amount}
