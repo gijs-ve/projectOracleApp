@@ -1,3 +1,4 @@
+import { parseAmount } from '@/lib/util/parsers/parseAmount';
 import { classNames } from '@/lib/util/style/classNames';
 import { rightSidePadding } from '@/lib/util/style/spacing';
 import Image from 'next/image';
@@ -19,14 +20,14 @@ export const ResourceDisplay = () => {
         },
         {
             perMinute: 0.5,
-            type: 'data',
-            amount: 300,
+            type: 'ink',
+            amount: 0,
             updatedAt: new Date(),
         },
         {
             perMinute: 0.5,
-            type: 'ink',
-            amount: 0,
+            type: 'data',
+            amount: 300,
             updatedAt: new Date(),
         },
         {
@@ -44,8 +45,11 @@ export const ResourceDisplay = () => {
             )}
         >
             {mockResources.map((resource) => (
-                <div key={resource.type} className="flex gap-2 ">
-                    <div className="text-white text-lg font-exo border ">
+                <div
+                    key={resource.type}
+                    className="cursor-default relative group flex gap-3"
+                >
+                    <div className="text-white text-lg font-exo border rounded-full overflow-hidden">
                         <Image
                             src={`/images/resources/${resource.type}.png`}
                             alt={resource.type}
@@ -55,7 +59,11 @@ export const ResourceDisplay = () => {
                         />
                     </div>
                     <div className="text-white text-lg font-exo">
-                        {resource.amount}
+                        {parseAmount(resource.amount)}
+                    </div>
+                    <div className="bg-grayish border border-white  p-2 absolute top-0 hidden group-hover:block">
+                        {resource.type.charAt(0).toUpperCase() +
+                            resource.type.slice(1)}
                     </div>
                 </div>
             ))}
