@@ -87,20 +87,17 @@ export const LettersInventory = () => {
             Z: 0,
         },
     };
-    //map to the following structure: { A: { 1: 0, 2: 0, 3: 0 }, B: { 1: 0, 2: 0, 3: 0 }, ... }
     function transformInventory(inventory: LetterTiers) {
         const result: { [key: string]: { [tier: number]: number } }[] = [];
-
-        // Get all letters from the first tier (assuming all tiers have the same letters)
         const letters = Object.keys(inventory[1]);
 
         letters.forEach((letter) => {
             const letterObj: { [key: string]: { [tier: number]: number } } = {};
             letterObj[letter] = {};
 
-            // Loop through all tiers and assign the corresponding value
             for (const tier in inventory) {
-                letterObj[letter][Number(tier)] = inventory[tier][letter];
+                letterObj[letter][Number(tier)] =
+                    inventory[tier as Tier][letter];
             }
 
             result.push(letterObj);
@@ -111,7 +108,7 @@ export const LettersInventory = () => {
     const renderedInventory = transformInventory(mockLetterInventory);
     console.log({ renderedInventory });
     return (
-        <div className="col-span-2 row-span2 border-2 border-white">
+        <div className="col-span-4 row-span2 border border-white">
             <div className="grid grid-cols-2 gap-2">
                 {renderedInventory.map((letterObj) => {
                     const letter = Object.keys(letterObj)[0];

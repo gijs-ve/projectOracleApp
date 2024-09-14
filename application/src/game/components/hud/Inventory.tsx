@@ -1,6 +1,6 @@
 export const Inventory = () => {
     return (
-        <div className="p-2 border-2 border-white col-span-8 col-start-3">
+        <div className="p-2 border border-white col-span-9 col-start-4">
             Inventory
         </div>
     );
