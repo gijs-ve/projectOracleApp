@@ -1,4 +1,4 @@
-import { MainLayout } from '@/components/containers/MainLayout';
+import { MainLayout } from '@/landing/components/containers/MainLayout';
 import { gameName } from '@/lib/constants';
 import './globals.css';
 

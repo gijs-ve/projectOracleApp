@@ -1,6 +1,6 @@
-import { Button } from '@/components/button/Button';
-import { MainLayout } from '@/components/containers/MainLayout';
-import { NormalSection } from '@/components/sections/NormalSection';
+import { Button } from '@/landing/components/button/Button';
+import { MainLayout } from '@/landing/components/containers/MainLayout';
+import { NormalSection } from '@/landing/components/sections/NormalSection';
 import { gameName } from '@/lib/constants';
 
 export default function LandingsPage() {
