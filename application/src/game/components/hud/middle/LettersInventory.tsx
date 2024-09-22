@@ -1,7 +1,7 @@
-import { LetterTiers } from 'project-oracle-helpers';
+import { LettersTier, Tier } from 'project-oracle-helpers';
 
 export const LettersInventory = () => {
-    const mockLetterInventory: LetterTiers = {
+    const mockLetterInventory: LettersTier = {
         1: {
             A: 0,
             B: 0,
@@ -87,7 +87,7 @@ export const LettersInventory = () => {
             Z: 0,
         },
     };
-    function transformInventory(inventory: LetterTiers) {
+    function transformInventory(inventory: LettersTier) {
         const result: { [key: string]: { [tier: number]: number } }[] = [];
         const letters = Object.keys(inventory[1]);
 
@@ -106,7 +106,6 @@ export const LettersInventory = () => {
         return result;
     }
     const renderedInventory = transformInventory(mockLetterInventory);
-    console.log({ renderedInventory });
     return (
         <div className="col-span-4 row-span2 border border-white">
             <div className="grid grid-cols-2 gap-2">

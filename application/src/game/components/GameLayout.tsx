@@ -3,6 +3,7 @@ import { Exo, Faustina, Inter } from 'next/font/google';
 import { BottomHUD } from './hud/BottomHUD';
 import { MiddleWindow } from './hud/middle/MiddleWindow';
 import { Topbar } from './hud/topbar/Topbar';
+import { StoreProvider } from './providers/StoreProdiver';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -31,7 +32,7 @@ export const GameLayout = ({ children }: GameLayoutProps) => {
             <body
                 className={`bg-g-blackish ${inter.variable} ${faustina.variable} ${exo.variable}`}
             >
-                <main className="max-w-max-page max-h-svh mx-auto font-exo w-svw overflow-hidden relative h-svh grid grid-cols-12 grid-rows-9">
+                <StoreProvider className="max-w-max-page max-h-svh mx-auto font-exo w-svw overflow-hidden relative h-svh grid grid-cols-12 grid-rows-9">
                     <Topbar />
                     <MiddleWindow>
                         <LeftWindow />
@@ -41,7 +42,7 @@ export const GameLayout = ({ children }: GameLayoutProps) => {
                     </MiddleWindow>
                     {children}
                     <BottomHUD />
-                </main>
+                </StoreProvider>
             </body>
         </html>
     );
