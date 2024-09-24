@@ -1,50 +1,82 @@
+'use client';
 import { parseAmount } from '@/lib/util/parsers/parseAmount';
 import { classNames } from '@/lib/util/style/classNames';
 import { rightSidePadding } from '@/lib/util/style/spacing';
 import Image from 'next/image';
 import { Resource } from 'project-oracle-helpers';
+import { useEffect, useRef, useState } from 'react';
 
 export const ResourceDisplay = () => {
+    const initialMockDate = useRef(new Date());
+    const [elapsedTime, setElapsedTime] = useState<number>(0);
+    useEffect(() => {
+        const updateElapsedTime = () => {
+            const now = new Date().getTime();
+            setElapsedTime(now);
+        };
+        const intervalId = setInterval(updateElapsedTime, 500);
+        return () => clearInterval(intervalId);
+    }, [elapsedTime]);
+
     const mockResources: Resource[] = [
         {
             perMinute: 0.3,
             type: 'money',
             amount: 10012,
-            updatedAt: new Date(),
+            updatedAt: initialMockDate.current,
         },
         {
             perMinute: 0.4,
             type: 'fuel',
             amount: 200,
-            updatedAt: new Date(),
+            updatedAt: initialMockDate.current,
         },
         {
             perMinute: 0.5,
             type: 'ink',
             amount: 0,
-            updatedAt: new Date(),
+            updatedAt: initialMockDate.current,
         },
         {
             perMinute: 0.5,
             type: 'data',
             amount: 300,
-            updatedAt: new Date(),
+            updatedAt: initialMockDate.current,
         },
         {
-            perMinute: 0.5,
+            perMinute: 100,
             type: 'e-coins',
             amount: 10,
-            updatedAt: new Date(),
+            updatedAt: initialMockDate.current,
         },
     ];
+
+    const updatedResources = mockResources.map((resource) => {
+        const now = elapsedTime;
+        const resourceUpdateTime = new Date(resource.updatedAt).getTime();
+        const timeDifference = now - resourceUpdateTime;
+
+        if (timeDifference < 0.5) {
+            return resource;
+        }
+
+        const minutesPassed = timeDifference / 60000;
+        const newAmount = resource.amount + resource.perMinute * minutesPassed;
+
+        return {
+            ...resource,
+            amount: Math.round(newAmount * 10) / 10,
+        };
+    });
+
     return (
         <div
             className={classNames(
                 rightSidePadding,
-                'col-span-5 flex items-center justify-end gap-8 ',
+                'col-span-5 items-center justify-end gap-8 grid grid-cols-5',
             )}
         >
-            {mockResources.map((resource) => (
+            {updatedResources.map((resource) => (
                 <div
                     key={resource.type}
                     className="cursor-default relative group flex gap-3"

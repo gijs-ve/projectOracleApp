@@ -1,5 +1,6 @@
+import { resourceTypes } from '@/lib/constants/resourceTypes';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { PrivateOperator } from 'project-oracle-helpers';
+import { PrivateOperator, ResourceType } from 'project-oracle-helpers';
 
 const initialLetters = {
     A: 0,
@@ -41,7 +42,12 @@ const initialState: PrivateOperator = {
         3: initialLetters,
     },
     unlockedWords: [],
-    resources: [],
+    resources: Object.keys(resourceTypes).map((type) => ({
+        type: type as ResourceType,
+        perMinute: 0,
+        updatedAt: new Date(),
+        amount: 0,
+    })),
     rooms: [],
     inventory: [],
     actions: [],
