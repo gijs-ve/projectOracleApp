@@ -16,7 +16,7 @@ export const WindowNavButton = ({
         <button
             onClick={onClick}
             className={classNames(
-                'text-white text-base font-exo border overflow-hidden p-1 px-2',
+                'text-white text-base font-t-rex-regular border overflow-hidden p-1 px-2',
                 className,
                 active
                     ? ''

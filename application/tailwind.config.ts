@@ -1,11 +1,12 @@
 import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const blocks = { default: 1.75, sm: 2, md: 2.25, lg: 2.5, xl: 3 };
 
 const config: Config = {
     content: [
+        './src/main/**/*.{js,ts,jsx,tsx,mdx}',
         './src/lib/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
         './src/game/**/*.{js,ts,jsx,tsx,mdx}',
     ],
@@ -49,6 +50,16 @@ const config: Config = {
                 mono: ['var(--font-geist-mono)'],
                 faustina: ['var(--font-faustina)'],
                 exo: ['var(--font-exo)'],
+                't-rex-bold': ['t-rex-bold', ...defaultTheme.fontFamily.serif],
+                't-rex-regular': [
+                    't-rex-regular',
+                    ...defaultTheme.fontFamily.serif,
+                ],
+                'rader-bold': ['rader-bold', ...defaultTheme.fontFamily.serif],
+                'rader-regular': [
+                    'rader-regular',
+                    ...defaultTheme.fontFamily.serif,
+                ],
             },
             spacing: {
                 'navbar-h': '93px',

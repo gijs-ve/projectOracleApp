@@ -20,7 +20,7 @@ export const Section = ({
     ...sectionProps
 }: SectionProps) => {
     return (
-        <section className={classNames('w-svw', className)} {...sectionProps}>
+        <section className={classNames('', className)} {...sectionProps}>
             <div
                 className={classNames(
                     !noSidePadding && sidePadding,

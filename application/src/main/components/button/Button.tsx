@@ -60,7 +60,7 @@ export const Button = ({
 };
 
 const InnerSpan = ({ text }: { text: string }) => (
-    <span className="m-[2px] text-2xl hover:bg-blueish-light text-white font-exo rounded-sm py-2 block px-4 bg-blueish">
+    <span className="m-[2px] text-2xl hover:bg-blueish-light text-white font-t-rex-bold rounded-sm py-2 block px-4 bg-blueish">
         {text.toUpperCase()}
     </span>
 );

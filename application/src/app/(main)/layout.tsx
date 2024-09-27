@@ -1,15 +1,16 @@
 import { gameName } from '@/lib/constants';
-import './globals.css';
+import { MainLayout } from '@/main/components/containers/MainLayout';
+import '../globals.css';
 
 export const metadata = {
     title: gameName,
     description: ``,
 };
 
-export default function RootLayout({
+export default function Layout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <>{children}</>;
+    return <MainLayout>{children}</MainLayout>;
 }

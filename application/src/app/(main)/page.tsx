@@ -1,11 +1,10 @@
-import { Button } from '@/landing/components/button/Button';
-import { MainLayout } from '@/landing/components/containers/MainLayout';
-import { NormalSection } from '@/landing/components/sections/NormalSection';
 import { gameName } from '@/lib/constants';
+import { Button } from '@/main/components/button/Button';
+import { NormalSection } from '@/main/components/sections/NormalSection';
 
 export default function LandingsPage() {
     return (
-        <MainLayout>
+        <>
             <NormalSection
                 sectionProps={{
                     isFirst: true,
@@ -27,9 +26,9 @@ export default function LandingsPage() {
                     innerClassName: 'flex w-full justify-center gap-4',
                 }}
             >
-                <Button text="Sign up" />
+                <Button element="link" href="/register" text="Sign up" />
                 <Button text="Login" />
             </NormalSection>
-        </MainLayout>
+        </>
     );
 }

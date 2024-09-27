@@ -28,3 +28,23 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+@font-face {
+    font-family: 't-rex-bold';
+    src: url('/fonts/t-rex-bold.otf');
+}
+
+@font-face {
+    font-family: 't-rex-regular';
+    src: url('/fonts/t-rex-regular.otf');
+}
+
+@font-face {
+    font-family: 'rader-bold';
+    src: url('/fonts/PPRader-Bold.otf');
+}
+
+@font-face {
+    font-family: 'rader-regular';
+    src: url('/fonts/PPRader-Regular.otf');
+}

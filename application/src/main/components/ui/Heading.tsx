@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { classNames } from '@/lib/util/style/classNames';
 
 type HeadingProps = {
     text: React.ReactNode;
@@ -6,7 +6,7 @@ type HeadingProps = {
     h?: 1 | 2 | 3 | 4 | 5 | 6;
 };
 export const Heading = ({ text, className, h = 2 }: HeadingProps) => {
-    const defaultClassName = classNames(' font-bold font-exo', {
+    const defaultClassName = classNames('font-bold font-t-rex-regular', {
         'text-5xl': h === 1 || h === 2,
         'text-4xl': h === 3,
         'text-3xl': h === 4,
