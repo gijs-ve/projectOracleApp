@@ -1,11 +1,19 @@
+'use client';
+import { useView } from '@/game/hooks/useView';
 import { Navigation } from './Navigation';
 import { ResourceDisplay } from './ResourceDisplay';
 
 export const Topbar = () => {
-    return (
-        <>
-            <Navigation />
-            <ResourceDisplay />
-        </>
-    );
+    const view = useView();
+    switch (view) {
+        case 'home':
+            return null;
+        default:
+            return (
+                <>
+                    <Navigation />
+                    <ResourceDisplay />
+                </>
+            );
+    }
 };

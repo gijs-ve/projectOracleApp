@@ -1,6 +1,10 @@
 import { resourceTypes } from '@/lib/constants/resourceTypes';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { PrivateOperator, ResourceType } from 'project-oracle-helpers';
+import {
+    PrivateOperator,
+    Resource,
+    ResourceType,
+} from 'project-oracle-helpers';
 
 const initialLetters = {
     A: 0,
@@ -30,8 +34,21 @@ const initialLetters = {
     Y: 0,
     Z: 0,
 };
+export type OperatorState = Omit<
+    PrivateOperator,
+    'resources' | 'createdAt' | 'updatedAt'
+> & {
+    resources: (Omit<Resource, 'updatedAt'> & {
+        updatedAt: string;
+    })[];
+    createdAt: string;
+    updatedAt: string;
+};
 
-const initialState: PrivateOperator = {
+const initialState: OperatorState = {
+    createdAt: '',
+    updatedAt: '',
+    name: '',
     id: '',
     userId: '',
     worldId: '',
@@ -45,7 +62,7 @@ const initialState: PrivateOperator = {
     resources: Object.keys(resourceTypes).map((type) => ({
         type: type as ResourceType,
         perMinute: 0,
-        updatedAt: new Date(),
+        updatedAt: new Date().toString(),
         amount: 0,
     })),
     rooms: [],
@@ -57,7 +74,7 @@ export const operatorSlice = createSlice({
     name: 'Operator Slice',
     initialState,
     reducers: {
-        setOperator: (_, action: PayloadAction<PrivateOperator>) => ({
+        setOperator: (_, action: PayloadAction<OperatorState>) => ({
             ...action.payload,
         }),
     },

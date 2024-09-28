@@ -1,5 +1,5 @@
-import { LeftWindow } from '@/game/components/hud/middle/LeftWindow';
 import { Exo, Faustina, Inter } from 'next/font/google';
+import { OnGameArrival } from './events/OnGameArrival';
 import { BottomHUD } from './hud/BottomHUD';
 import { MiddleWindow } from './hud/middle/MiddleWindow';
 import { Topbar } from './hud/topbar/Topbar';
@@ -33,13 +33,9 @@ export const GameLayout = ({ children }: GameLayoutProps) => {
                 className={`bg-g-blackish ${inter.variable} ${faustina.variable} ${exo.variable}`}
             >
                 <StoreProvider className="max-w-max-page max-h-svh mx-auto font-exo w-svw overflow-hidden relative h-svh grid grid-cols-12 grid-rows-9">
+                    <OnGameArrival />
                     <Topbar />
-                    <MiddleWindow>
-                        <LeftWindow />
-                        <div className="col-span-10 border-t border-r row-span-4">
-                            transparent
-                        </div>
-                    </MiddleWindow>
+                    <MiddleWindow />
                     {children}
                     <BottomHUD />
                 </StoreProvider>

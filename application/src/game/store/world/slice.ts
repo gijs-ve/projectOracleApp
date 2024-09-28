@@ -1,13 +1,12 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { World } from 'project-oracle-helpers';
 
-const initialState: World = {
+const initialState: Omit<World, 'createdAt' | 'updatedAt' | 'currentTime'> = {
     id: '',
     name: '',
     depletedWords: [],
     operators: [],
     targetStars: 0,
-    currentTime: new Date(),
 };
 
 export const worldSlice = createSlice({

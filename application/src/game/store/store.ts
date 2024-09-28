@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import operatorReducer from './operator/slice';
+import uiReducer from './ui/slice';
+import userReducer from './user/slice';
 import worldReducer from './world/slice';
 
 const store = configureStore({
     reducer: {
-        operator: operatorReducer,
+        user: userReducer,
         world: worldReducer,
+        operator: operatorReducer,
+        ui: uiReducer,
     },
 });
 

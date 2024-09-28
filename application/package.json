@@ -13,7 +13,7 @@
         "@reduxjs/toolkit": "^2.2.7",
         "clsx": "^2.1.1",
         "next": "15.0.0-rc.0",
-        "project-oracle-helpers": "^1.0.18",
+        "project-oracle-helpers": "^1.0.28",
         "react": "19.0.0-rc-f994737d14-20240522",
         "react-dom": "19.0.0-rc-f994737d14-20240522",
         "react-redux": "^9.1.2",

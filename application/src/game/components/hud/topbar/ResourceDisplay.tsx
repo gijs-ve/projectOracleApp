@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 export const ResourceDisplay = () => {
     const initialMockDate = useRef(new Date());
     const [elapsedTime, setElapsedTime] = useState<number>(0);
+
     useEffect(() => {
         const updateElapsedTime = () => {
             const now = new Date().getTime();
