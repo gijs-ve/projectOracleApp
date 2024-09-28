@@ -1,10 +1,14 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useGameDispatch } from './useGameDispatch';
 
 export const useEffectDispatch = (action: Reducer) => {
     const dispatch = useGameDispatch();
+    const isDispatched = useRef(false);
     useEffect(() => {
-        dispatch(action(undefined, { type: '' }));
+        if (!isDispatched.current) {
+            isDispatched.current = true;
+            dispatch(action(undefined, { type: '' }));
+        }
     }, []);
 };
