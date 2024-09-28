@@ -1,9 +1,9 @@
-import { resourceTypes } from '@/lib/constants/resourceTypes';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import {
     PrivateOperator,
     Resource,
     ResourceType,
+    resourceTypes,
 } from 'project-oracle-helpers';
 
 const initialLetters = {

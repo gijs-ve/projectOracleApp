@@ -3,11 +3,14 @@ import { useView } from '@/game/hooks/useView';
 import { Navigation } from './Navigation';
 import { ResourceDisplay } from './ResourceDisplay';
 
-export const Topbar = () => {
+export const TopWindow = () => {
     const view = useView();
     switch (view) {
-        case 'home':
+        case 'operator-selection':
+        case 'world-selection':
             return null;
+        case 'operator-creation':
+            return <div>Back</div>;
         default:
             return (
                 <>

@@ -1,12 +1,8 @@
 'use client';
-import { useGameDispatch } from '@/game/hooks/useGameDispatch';
+import { useEffectDispatch } from '@/game/hooks/useEffectDispatch';
 import { getPrivateUser } from '@/game/store/thunks/users';
-import { useEffect } from 'react';
 
 export const OnGameArrival = () => {
-    const dispatch = useGameDispatch();
-    useEffect(() => {
-        dispatch(getPrivateUser());
-    }, []);
+    useEffectDispatch(getPrivateUser);
     return null;
 };

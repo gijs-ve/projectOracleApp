@@ -4,6 +4,7 @@ import { classNames } from '@/lib/util/style/classNames';
 import { sidePaddingNoMax } from '@/lib/util/style/spacing';
 import { LeftWindow } from './LeftWindow';
 import { OperatorSelection } from './OperatorSelection';
+import { WorldSelection } from './WorldSelection';
 
 type MiddleWindowProps = {};
 export const MiddleWindow = ({}: MiddleWindowProps) => {
@@ -22,10 +23,13 @@ export const MiddleWindow = ({}: MiddleWindowProps) => {
 
 const RenderMiddleWindow = () => {
     const view = useView();
-
+    console.log({ view });
     switch (view) {
-        case 'home':
+        case 'operator-selection':
+        case 'operator-creation':
             return <OperatorSelection />;
+        case 'world-selection':
+            return <WorldSelection />;
         default:
             return (
                 <>

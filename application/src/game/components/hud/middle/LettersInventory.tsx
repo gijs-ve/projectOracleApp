@@ -97,6 +97,7 @@ export const LettersInventory = () => {
 
             for (const tier in inventory) {
                 letterObj[letter][Number(tier)] =
+                    // @ts-ignore
                     inventory[tier as Tier][letter];
             }
 

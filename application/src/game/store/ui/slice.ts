@@ -1,24 +1,32 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { World } from 'project-oracle-helpers';
 
 const gameViews = [
-    'home',
     'game',
     'settings',
     'leaderboard',
     'profile',
+    'operator-selection',
+    'operator-creation',
+    'world-selection',
 ] as const;
 
-type GameView = (typeof gameViews)[number];
-const initialState: {
+export type GameView = (typeof gameViews)[number];
+type AvailableWorld = (Pick<World, 'id' | 'name'> & { createdAt: string })[];
+
+export type UiState = {
     booleans: {
         appIsLoading: boolean;
     };
     view: GameView;
-} = {
+    availableWorlds: AvailableWorld[];
+};
+const initialState: UiState = {
     booleans: {
         appIsLoading: false,
     },
-    view: 'home',
+    view: 'operator-selection',
+    availableWorlds: [],
 };
 
 export const uiSlice = createSlice({
@@ -43,9 +51,19 @@ export const uiSlice = createSlice({
         ) => {
             state.booleans[action.payload] = false;
         },
+        setView: (state, action: PayloadAction<GameView>) => {
+            state.view = action.payload;
+        },
+        setAvailableWorlds: (
+            state,
+            action: PayloadAction<AvailableWorld[]>,
+        ) => {
+            state.availableWorlds = action.payload;
+        },
     },
 });
 
-export const { toggleValue, setTrue, setFalse } = uiSlice.actions;
+export const { toggleValue, setTrue, setFalse, setView, setAvailableWorlds } =
+    uiSlice.actions;
 
 export default uiSlice.reducer;

@@ -1,11 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { User } from 'project-oracle-helpers';
+import { PrivateOperator, User } from 'project-oracle-helpers';
 
-type UserState = Omit<
-    User<'private'>,
-    'operators' | 'createdAt' | 'updatedAt'
-> & {
-    operators: { id: string; name: string }[];
+type UserState = Omit<User<'private'>, 'createdAt' | 'updatedAt'> & {
     createdAt: string;
     updatedAt: string;
 };
@@ -26,10 +22,7 @@ export const userSlice = createSlice({
         setUser: (_, action: PayloadAction<UserState>) => ({
             ...action.payload,
         }),
-        addOperator: (
-            state,
-            action: PayloadAction<{ id: string; name: string }>,
-        ) => {
+        addOperator: (state, action: PayloadAction<PrivateOperator>) => {
             state.operators = [...state.operators, action.payload];
         },
         deleteOperator: (state, action: PayloadAction<string>) => {

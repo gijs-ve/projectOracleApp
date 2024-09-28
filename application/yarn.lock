@@ -2255,9 +2255,9 @@ prelude-ls@^1.2.1:
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
 project-oracle-helpers@^1.0.28:
-  version "1.0.32"
-  resolved "https://registry.yarnpkg.com/project-oracle-helpers/-/project-oracle-helpers-1.0.32.tgz#567bd910eab1b8f28d920ee5eb884952684fcef6"
-  integrity sha512-lEWNf6t1nP36BiOx3fVPESMLu+DWd7Qe3/jhOd4TVtzDrjoutAvKzpLWGwthDXv4EdoK1VYuntYr4oO4CeUjuQ==
+  version "1.0.39"
+  resolved "https://registry.yarnpkg.com/project-oracle-helpers/-/project-oracle-helpers-1.0.39.tgz#e86fb4e39964d8273cf3b9aac1879006258c81a1"
+  integrity sha512-EOkfHww3PMljuTiWFewHSWM4r0QH82jEcgg9F6bqRk9c+1hT+QyAlukNNreXUqNOWwTClgnv/HvowpAP2M/R+g==
 
 prop-types@^15.8.1:
   version "15.8.1"

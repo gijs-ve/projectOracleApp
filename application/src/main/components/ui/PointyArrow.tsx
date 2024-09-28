@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { classNames } from '@/lib/util/style/classNames';
 
 type PointyArrowProps = {
     reversed?: boolean;

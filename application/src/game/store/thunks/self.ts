@@ -22,3 +22,17 @@ export const logOut = () => async (dispatch: GameDispatch) => {
         window.location.href = '/login';
     }
 };
+
+export const retrieveToken =
+    () =>
+    (dispatch: GameDispatch): string => {
+        try {
+            const token = getToken();
+            if (token) {
+                return token;
+            }
+        } catch (error) {
+            dispatch(logOut());
+        }
+        return '';
+    };
