@@ -77,9 +77,12 @@ export const operatorSlice = createSlice({
         setOperator: (_, action: PayloadAction<OperatorState>) => ({
             ...action.payload,
         }),
+        setOperatorId: (state, action: PayloadAction<string>) => {
+            state.id = action.payload;
+        },
     },
 });
 
-export const { setOperator } = operatorSlice.actions;
+export const { setOperator, setOperatorId } = operatorSlice.actions;
 
 export default operatorSlice.reducer;

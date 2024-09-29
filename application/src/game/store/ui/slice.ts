@@ -12,7 +12,7 @@ const gameViews = [
 ] as const;
 
 export type GameView = (typeof gameViews)[number];
-type AvailableWorld = (Pick<World, 'id' | 'name'> & { createdAt: string })[];
+type AvailableWorld = Pick<World, 'id' | 'name'> & { createdAt: string };
 
 export type UiState = {
     booleans: {

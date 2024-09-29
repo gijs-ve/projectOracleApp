@@ -1,3 +1,4 @@
+import { GetState } from '@/game/store/store';
 import { apiClient } from '@/lib/api/client';
 import { setOperator } from '../operator/slice';
 import { GameDispatch } from '../store';
@@ -56,6 +57,25 @@ export const getPrivateOperator =
                         })),
                     }),
                 );
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+export const setWorld =
+    (worldId: string) => async (dispatch: GameDispatch, getState: GetState) => {
+        try {
+            const token = dispatch(retrieveToken());
+            const { operator } = getState();
+            const response = await apiClient.operators.setWorld({
+                worldId,
+                token,
+                operatorId: operator.id,
+            });
+
+            if (response.ok) {
+                dispatch(getPrivateOperator(worldId));
             }
         } catch (error) {
             console.error(error);

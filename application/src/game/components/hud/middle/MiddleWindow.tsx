@@ -23,7 +23,6 @@ export const MiddleWindow = ({}: MiddleWindowProps) => {
 
 const RenderMiddleWindow = () => {
     const view = useView();
-    console.log({ view });
     switch (view) {
         case 'operator-selection':
         case 'operator-creation':

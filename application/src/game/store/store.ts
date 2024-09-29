@@ -15,5 +15,6 @@ const store = configureStore({
 });
 
 export type GameState = ReturnType<typeof store.getState>;
+export type GetState = () => GameState;
 export type GameDispatch = typeof store.dispatch;
 export default store;

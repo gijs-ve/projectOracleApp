@@ -2,6 +2,7 @@ import { useAvailableOperators } from '@/game/hooks/useAvailableOperators';
 import { useGameDispatch } from '@/game/hooks/useGameDispatch';
 import { useSetView } from '@/game/hooks/useSetView';
 import { useView } from '@/game/hooks/useView';
+import { setOperatorId } from '@/game/store/operator/slice';
 import { createOperator } from '@/game/store/thunks/operators';
 import { classNames } from '@/lib/util/style/classNames';
 import { Heading } from '@/main/components/ui/Heading';
@@ -42,11 +43,16 @@ type OperatorChoiceProps = {
 };
 
 const OperatorChoiceButton = ({
-    operator: { name, stars },
+    operator: { name, stars, id },
 }: OperatorChoiceProps) => {
+    const dispatch = useGameDispatch();
     const setWorldSelection = useSetView('world-selection');
+    const onClick = () => {
+        dispatch(setOperatorId(id));
+        setWorldSelection();
+    };
     return (
-        <OperatorContainer className="flex-col" onClick={setWorldSelection}>
+        <OperatorContainer className="flex-col" onClick={onClick}>
             <span>{name}</span>
             <span>{stars}</span>
         </OperatorContainer>
