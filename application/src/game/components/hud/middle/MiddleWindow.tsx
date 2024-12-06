@@ -5,6 +5,7 @@ import { sidePaddingNoMax } from '@/lib/util/style/spacing';
 import { LeftWindow } from './LeftWindow';
 import { OperatorSelection } from './OperatorSelection';
 import { WorldSelection } from './WorldSelection';
+import { OracleSelection } from './oracles/OracleSelection';
 
 type MiddleWindowProps = {};
 export const MiddleWindow = ({}: MiddleWindowProps) => {
@@ -29,6 +30,8 @@ const RenderMiddleWindow = () => {
             return <OperatorSelection />;
         case 'world-selection':
             return <WorldSelection />;
+        case 'oracle-selection':
+            return <OracleSelection />;
         default:
             return (
                 <>

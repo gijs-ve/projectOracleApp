@@ -3,7 +3,7 @@ import { parseAmount } from '@/lib/util/parsers/parseAmount';
 import { classNames } from '@/lib/util/style/classNames';
 import { rightSidePadding } from '@/lib/util/style/spacing';
 import Image from 'next/image';
-import { Resource } from 'project-oracle-helpers';
+import { Resource, utils } from 'project-oracle-helpers';
 import { useEffect, useRef, useState } from 'react';
 
 export const ResourceDisplay = () => {
@@ -53,20 +53,9 @@ export const ResourceDisplay = () => {
     ];
 
     const updatedResources = mockResources.map((resource) => {
-        const now = elapsedTime;
-        const resourceUpdateTime = new Date(resource.updatedAt).getTime();
-        const timeDifference = now - resourceUpdateTime;
-
-        if (timeDifference < 0.5) {
-            return resource;
-        }
-
-        const minutesPassed = timeDifference / 60000;
-        const newAmount = resource.amount + resource.perMinute * minutesPassed;
-
         return {
             ...resource,
-            amount: Math.round(newAmount * 10) / 10,
+            amount: utils.resources.getResourceCount(resource, elapsedTime),
         };
     });
 

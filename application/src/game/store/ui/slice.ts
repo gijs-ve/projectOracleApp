@@ -1,17 +1,7 @@
+import { GameView } from '@/game/constants/views';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { World } from 'project-oracle-helpers';
 
-const gameViews = [
-    'game',
-    'settings',
-    'leaderboard',
-    'profile',
-    'operator-selection',
-    'operator-creation',
-    'world-selection',
-] as const;
-
-export type GameView = (typeof gameViews)[number];
 type AvailableWorld = Pick<World, 'id' | 'name'> & { createdAt: string };
 
 export type UiState = {

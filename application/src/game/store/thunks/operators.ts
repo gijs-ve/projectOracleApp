@@ -2,6 +2,7 @@ import { GetState } from '@/game/store/store';
 import { apiClient } from '@/lib/api/client';
 import { setOperator } from '../operator/slice';
 import { GameDispatch } from '../store';
+import { setView } from '../ui/slice';
 import { retrieveToken } from './self';
 
 export const createOperator =
@@ -68,6 +69,10 @@ export const setWorld =
         try {
             const token = dispatch(retrieveToken());
             const { operator } = getState();
+            if (operator.worldId === worldId) {
+                dispatch(setView('world-default'));
+                return;
+            }
             const response = await apiClient.operators.setWorld({
                 worldId,
                 token,
@@ -76,6 +81,8 @@ export const setWorld =
 
             if (response.ok) {
                 dispatch(getPrivateOperator(worldId));
+                dispatch(setView('world-default'));
+                dispatch(setOperator({ ...operator, worldId }));
             }
         } catch (error) {
             console.error(error);

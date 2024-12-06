@@ -58,7 +58,7 @@ const initialState: OperatorState = {
         2: initialLetters,
         3: initialLetters,
     },
-    unlockedWords: [],
+    vocabulary: [],
     resources: Object.keys(resourceTypes).map((type) => ({
         type: type as ResourceType,
         perMinute: 0,

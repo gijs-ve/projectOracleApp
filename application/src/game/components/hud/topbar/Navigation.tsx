@@ -1,8 +1,7 @@
+import { mainViews } from '@/game/constants/views';
 import { classNames } from '@/lib/util/style/classNames';
 import { sidePaddingNoMax } from '@/lib/util/style/spacing';
 import { NavigationItem } from './NavigationItem';
-
-const MainViews = ['operator', 'rooms', 'oracles', 'vendors'];
 
 export const Navigation = () => {
     return (
@@ -14,8 +13,8 @@ export const Navigation = () => {
                         'h-full flex items-center gap-8 sm:gap-12 md:gap-16',
                     )}
                 >
-                    {MainViews.map((view) => (
-                        <NavigationItem key={view} view={view} />
+                    {mainViews.map(({ text, view }) => (
+                        <NavigationItem key={text} view={view} text={text} />
                     ))}
                 </div>
             </div>

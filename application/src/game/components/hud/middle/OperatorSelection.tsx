@@ -14,14 +14,13 @@ import { MiddleWindowContainer } from './MiddleWindowContainer';
 export const OperatorSelection = () => {
     const availableOperators = useAvailableOperators();
     const view = useView();
-    if (!availableOperators) {
-        return null;
-    }
+    const showOptions = availableOperators && availableOperators.length > 0;
 
     return (
         <MiddleWindowContainer>
             {view === 'operator-selection' &&
                 [0, 1, 2].map((index) => {
+                    if (!showOptions) return <OperatorContainer key={index} />;
                     const operator = availableOperators[index];
                     if (operator) {
                         return (
@@ -69,7 +68,7 @@ const OperatorCreationButton = () => {
 };
 
 type OperatorContainerProps = {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     className?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 const OperatorContainer = ({
